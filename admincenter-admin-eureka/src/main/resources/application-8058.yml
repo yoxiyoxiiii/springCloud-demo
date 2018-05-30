@@ -1,0 +1,20 @@
+server:
+  port: 8058
+eureka:
+  client:
+    #表示是否将自己注册到Eureka Server ,即自己是服务端，也是客户端
+    #一般在生产中 Eureka Server 只用做 注册中心，并不对外提供服务，在Eureka中，是Eureka的客户端对外提供服务。
+    register-with-eureka: true
+    #获取其他 Eureka Server 中的服务，用于 集群模式，高可用
+    fetch-registry: true
+    service-url:
+     defaultZone: http://localhost:8056/eureka,http://localhost:8057/eureka
+  instance:
+    hostname: localhost
+    # 关闭自我保护模式，开发环境使用
+  server:
+    enable-self-preservation: true
+
+spring:
+  application:
+    name: admincenter-admin

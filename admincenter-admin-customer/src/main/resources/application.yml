@@ -1,0 +1,11 @@
+server:
+  port: 8066
+eureka:
+  client:
+    service-url:
+      #配置多个注册中心，实现高可用，如果只配置一个，如 只配置8056,8056挂了，虽然在服务端配置了fetch-registry: true 在8057上面也不会有服务，因为8057上的服务是同步的8056上面的，
+      #为解决这个问题，就可以配置多个注册中心。如果配3个以上的 需要两两相互 注册 服务端。
+      defaultZone: http://localhost:8056/eureka,http://localhost:8057/eureka
+spring:
+  application:
+    name: customer
